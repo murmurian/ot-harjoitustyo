@@ -1,0 +1,103 @@
+commit 7ce50bc6fa5707ebed89b45a0396bef2b53642d7
+Author: János Pap <murmurian@gmail.com>
+Date:   Wed Oct 28 16:50:36 2020 +0200
+
+    file1 poisto, file2 -> file22
+
+ tiedostoja/file2             | 0
+ tiedostoja/{file1 => file22} | 0
+ 2 files changed, 0 insertions(+), 0 deletions(-)
+
+commit a3e4e5f8168609e0f74a1d87e3247364c4475fc8
+Author: János Pap <murmurian@gmail.com>
+Date:   Wed Oct 28 15:10:15 2020 +0200
+
+    file1, file2, file3 luotu
+
+ tiedostoja/file1 | 0
+ tiedostoja/file2 | 0
+ tiedostoja/file3 | 0
+ 3 files changed, 0 insertions(+), 0 deletions(-)
+
+commit 61b0706870213fd22aec0fd1b1214a8dfb7adc09
+Author: János Pap <murmurian@gmail.com>
+Date:   Wed Oct 28 14:36:12 2020 +0200
+
+    muutoksia
+
+ eka.txt    | 3 ++-
+ kolmas.txt | 1 +
+ 2 files changed, 3 insertions(+), 1 deletion(-)
+
+commit c86f60017de479ed6ae8166ca416840dde6244ba
+Author: János Pap <murmurian@gmail.com>
+Date:   Wed Oct 28 14:32:36 2020 +0200
+
+    tiedosto.txt -> eka.txt
+
+ tiedosto.txt => eka.txt | 0
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+
+commit 83309f8b29cd20036c88635e862da283ab7d507f
+Author: János Pap <murmurian@gmail.com>
+Date:   Wed Oct 28 14:29:50 2020 +0200
+
+    toinen.txt poistettu
+
+ toinen.txt | 0
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+
+commit 67d086a57437e4f65d1a71e5119d304bda2062cc
+Author: János Pap <murmurian@gmail.com>
+Date:   Wed Oct 28 14:28:04 2020 +0200
+
+    tiedosto.txt muokattu
+
+ tiedosto.txt | 3 ++-
+ 1 file changed, 2 insertions(+), 1 deletion(-)
+
+commit c0aa94d0d468b19509dbc86c38fa7fc48d31c0f5
+Author: János Pap <murmurian@gmail.com>
+Date:   Wed Oct 28 14:25:16 2020 +0200
+
+    tiedosto.txt muokattu
+
+ tiedosto.txt | 10 +++++++++-
+ 1 file changed, 9 insertions(+), 1 deletion(-)
+
+commit d34857985ca5532b95f9768a0f087f0244f9dea9
+Author: János Pap <murmurian@gmail.com>
+Date:   Wed Oct 28 14:19:16 2020 +0200
+
+    stuff-hakemisto ja jokin-tiedosto luotu
+
+ stuff/jokin | 0
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+
+commit 2464cf64bbc3e664285e52049e51aaa021a0260a
+Author: János Pap <murmurian@gmail.com>
+Date:   Wed Oct 28 14:17:27 2020 +0200
+
+    kolmas.txt luotu
+
+ kolmas.txt | 0
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+
+commit 5300e0dc9d36d318328c91927b724d6467db60f0
+Author: János Pap <murmurian@gmail.com>
+Date:   Wed Oct 28 14:13:00 2020 +0200
+
+    muutos ja lisäys
+
+ tiedosto.txt | 1 +
+ toinen.txt   | 0
+ 2 files changed, 1 insertion(+)
+
+commit 7d4c8e7db00697ea3f8401c2ebae37b5ae1e6883
+Author: János Pap <murmurian@gmail.com>
+Date:   Tue Oct 27 22:40:13 2020 +0200
+
+    tiedosto.txt luotu
+
+ tiedosto.txt | 0
+ 1 file changed, 0 insertions(+), 0 deletions(-)
