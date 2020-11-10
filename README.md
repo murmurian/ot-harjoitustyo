@@ -1,5 +1,8 @@
 # Ohjelmistotekniikka, harjoitustyö
 
+[vaatimusmäärittely](https://github.com/murmurian/ot-harjoitustyo/edit/master/dokumentaatio/vaatimusmaarittely.md)
+[työaikakirjanpito](https://github.com/murmurian/ot-harjoitustyo/edit/master/dokumentaatio/tyoaikakirjanpito.md)
+
 ## Tehtävät
 
 ### Viikko 1
