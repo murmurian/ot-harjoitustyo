@@ -1,15 +1,15 @@
-#Vaatimusmäärittely
+# Vaatimusmäärittely
 
-##Sovelluksen tarkoitus
+## Sovelluksen tarkoitus
 
 Sovellus on pulmapeliklassikko Miinaharava, jossa pelaajan tehtävänä on etsiä miinat pelilaudalta. Tarkempi kuvaus pelin säännöistä löytyy esim. Wikipediasta:
 [Miinaharava](https://fi.wikipedia.org/wiki/Miinaharava_(peli))
 
-##Käyttäjät
+## Käyttäjät
 
 Pelissä on yksi käyttäjä eli pelaaja.
 
-##Toiminnallisuus
+## Toiminnallisuus
 
 - Käyttäjä voi pelata kolmella eri vaikeustasolla:
   - Helppo, laudan koko 9x9, miinoja 10
@@ -25,7 +25,7 @@ Pelissä on yksi käyttäjä eli pelaaja.
   - Voittoon, jos kaikki ruudut joissa ei ole miinaa saadaan avattua
   - Tappioon, jos pelaaja osuu miinaan
 
-##Jatkokehitysideoita
+## Jatkokehitysideoita
 
 - Peli näyttää käyttäjälle ajan sekunteina pelin alusta
 - Jos käyttäjä voittaa pelin, pyydetään käyttäjän nimimerkki ja lisätään aika pistetilastoon
