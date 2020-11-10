@@ -30,4 +30,5 @@ Pelissä on yksi käyttäjä eli pelaaja.
 - Peli näyttää käyttäjälle ajan sekunteina pelin alusta
 - Jos käyttäjä voittaa pelin, pyydetään käyttäjän nimimerkki ja lisätään aika pistetilastoon
 - Käyttäjä voi itse määritellä sopivissa rajoissa oman laudan koon ja miinojen määrän
+- Jos käyttäjä osuu ensimmäisellä arvauksella miinaan, siirretään miina johonkin toiseen ruutuun
 - Graafisen ulkoasun kehittely
