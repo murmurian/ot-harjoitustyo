@@ -3,6 +3,7 @@ package minesweeper;
 public class Cell {
     private boolean isOpen;
     private boolean isMine;
+    private boolean isFlagged;
     private int minesNear;
 
     public boolean getIsOpen() {
@@ -11,6 +12,10 @@ public class Cell {
 
     public boolean getIsMine() {
         return this.isMine;
+    }
+
+    public boolean getIsFlagged() {
+        return this.isFlagged;
     }
 
     public void setIsOpen() {
@@ -23,6 +28,10 @@ public class Cell {
 
     public int getMinesNear() {
         return this.minesNear;
+    }
+
+    public void setIsFlagged() {
+        this.isFlagged = true;
     }
 
     @Override
