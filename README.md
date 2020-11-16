@@ -15,4 +15,4 @@ Sovellus on pulmapeliklassikko Miinaharava, jossa pelaajan tehtävänä on etsi�
 
 Testit suoritetaan komennolla:
 
-´mvn test´
+`mvn test`
