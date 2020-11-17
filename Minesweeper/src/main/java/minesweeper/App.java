@@ -8,7 +8,7 @@ public class App {
         Board board;
         Scanner scanner = new Scanner(System.in);
 
-        System.out.print("Enter difficulty: 1(easy), 2(intermediate), 3(hard) ?");
+        System.out.println("Enter difficulty: 1(easy), 2(intermediate), 3(hard) ?");
         String difficulty = scanner.nextLine();
 
         switch (difficulty) {
@@ -28,10 +28,10 @@ public class App {
         System.out.println(Arrays.deepToString(board.getBoard()).replace("], ", "]\n "));
 
         while (true) {
-            System.out.print("Enter x-coordinate to open (q to quit): ");
+            System.out.println("Enter x-coordinate to open (q to quit): ");
             String x = scanner.nextLine();
             if (x.equals("q")) break;
-            System.out.print("Enter y-coordinate to open (q to quit): ");
+            System.out.println("Enter y-coordinate to open (q to quit): ");
             String y = scanner.nextLine();
             if (y.equals("q")) break;
 
