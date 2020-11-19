@@ -30,15 +30,19 @@ public class Cell {
         return this.minesNear;
     }
 
+    public void addMinesNear() {
+        this.minesNear++;
+    }
+
     public void setIsFlagged() {
         this.isFlagged = true;
     }
 
     @Override
-    public String toString() { 
-        if (isOpen) return String.valueOf(minesNear);
-        if (isMine) return "*";
-        return "#";
+    public String toString() {
+        if (!isOpen) return " ";
+        if (isMine) return "*"; 
+        return String.valueOf(minesNear);
     } 
 
 }

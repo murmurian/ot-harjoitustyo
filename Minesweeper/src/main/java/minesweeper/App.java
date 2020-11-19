@@ -23,7 +23,10 @@ public class App {
                 break;
             default:
                 board = new Board(9, 9, 10);
-        }        
+        }
+        
+        board.setSeed(1337);
+        board.generateMinefield();
 
         System.out.println(Arrays.deepToString(board.getBoard()).replace("], ", "]\n "));
 
