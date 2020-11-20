@@ -40,7 +40,7 @@ public class Cell {
 
     @Override
     public String toString() {
-        //if (!isOpen) return " ";
+        if (!isOpen) return " ";
         if (isMine) return "*"; 
         return String.valueOf(minesNear);
     }
