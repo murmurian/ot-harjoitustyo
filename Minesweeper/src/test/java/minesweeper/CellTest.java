@@ -53,4 +53,10 @@ public class CellTest {
     public void newCellHasZeroMinesNear() {
         assertEquals(0, cell.getMinesNear());
     }
+
+    @Test
+    public void addMinesAddsMine() {
+        cell.addMinesNear();
+        assertEquals(1, cell.getMinesNear());
+    }
 }

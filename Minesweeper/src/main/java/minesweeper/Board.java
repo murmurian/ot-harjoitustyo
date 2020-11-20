@@ -9,7 +9,7 @@ public class Board {
     private final int width;
     private final int height;
     private final int mines;
-    private int seed;
+    private int seed; // Seed value used mainly for generating constant board for testing. It could be utilized for saving particular board setup for replays.
 
     public Board(int width, int height, int mines) {
         this.width = width;
@@ -43,39 +43,25 @@ public class Board {
             y = list.get(i) / this.width;
             x = list.get(i) % this.width;
             this.board[y][x].setIsMine();
-            setMinesNear(x, y);            
+            setMinesNear(x, y);
         }
     }
 
     public void setMinesNear(int x, int y) {
         if (y > 0) {
             this.board[y - 1][x].addMinesNear();
-            if (x > 0) {
-                this.board[y - 1][x - 1].addMinesNear();
-            }
-            if (x < this.width - 1) {
-                this.board[y - 1][x + 1].addMinesNear();
-            }
+            if (x > 0) this.board[y - 1][x - 1].addMinesNear();
+            if (x < this.width - 1) this.board[y - 1][x + 1].addMinesNear();
         }
 
         if (y < this.height - 1) {
             this.board[y + 1][x].addMinesNear();
-            if (x > 0) {
-                this.board[y + 1][x - 1].addMinesNear();
-            }
-            if (x < this.width - 1) {
-                this.board[y + 1][x + 1].addMinesNear();
-            }
+            if (x > 0) this.board[y + 1][x - 1].addMinesNear();
+            if (x < this.width - 1) this.board[y + 1][x + 1].addMinesNear();
         }
 
-        if (x > 0) {
-            this.board[y][x - 1].addMinesNear();
-        }
-
-        if (x < this.width - 1) {
-            this.board[y][x + 1].addMinesNear();
-        }
-
+        if (x > 0) this.board[y][x - 1].addMinesNear();
+        if (x < this.width - 1) this.board[y][x + 1].addMinesNear();
     }
 
     public void openCell(int x, int y) {
@@ -84,6 +70,18 @@ public class Board {
 
     public Cell[][] getBoard() {
         return this.board;
+    }
+
+    public int getWidth() {
+        return this.width;
+    }
+
+    public int getHeight() {
+        return this.height;
+    }
+
+    public int getMines() {
+        return this.mines;
     }
 
     public int getSeed() {

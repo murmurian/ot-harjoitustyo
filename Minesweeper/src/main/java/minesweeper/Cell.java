@@ -40,9 +40,20 @@ public class Cell {
 
     @Override
     public String toString() {
-        if (!isOpen) return " ";
+        //if (!isOpen) return " ";
         if (isMine) return "*"; 
         return String.valueOf(minesNear);
-    } 
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (o == this)
+            return true;
+        if (!(o instanceof Cell)) {
+            return false;
+        }
+        Cell cell = (Cell) o;
+        return isOpen == cell.isOpen && isMine == cell.isMine && isFlagged == cell.isFlagged && minesNear == cell.minesNear;
+    }
 
 }
