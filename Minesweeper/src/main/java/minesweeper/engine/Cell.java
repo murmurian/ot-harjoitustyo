@@ -1,4 +1,4 @@
-package minesweeper;
+package minesweeper.engine;
 
 public class Cell {
     private boolean isOpen;
@@ -40,15 +40,20 @@ public class Cell {
 
     @Override
     public String toString() {
-        if (!isOpen) return " ";
-        if (isMine) return "*"; 
+        if (!isOpen) {
+            return " ";
+        }
+        if (isMine) {
+            return "*";
+        }
         return String.valueOf(minesNear);
     }
 
     @Override
     public boolean equals(Object o) {
-        if (o == this)
+        if (o == this) {
             return true;
+        }
         if (!(o instanceof Cell)) {
             return false;
         }

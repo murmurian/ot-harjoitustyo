@@ -1,5 +1,6 @@
 package minesweeper;
 
+import minesweeper.engine.*;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;

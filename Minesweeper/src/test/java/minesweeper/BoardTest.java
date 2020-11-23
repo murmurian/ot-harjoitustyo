@@ -1,5 +1,6 @@
 package minesweeper;
 
+import minesweeper.engine.*;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
@@ -44,7 +45,8 @@ public class BoardTest {
     @Test
     public void generateMinefieldGeneratesProperMinefield() {
         int mines = 0;
-        board.generateMinefield();
+        board.setSeed(1337);
+        board.generateMinefield(0, 0);
         for (Cell[] row : board.getBoard()) {
             for (Cell cell : row) {
                 if (cell.getIsMine()) mines++;
