@@ -20,3 +20,17 @@ Sovellus on pulmapeliklassikko Miinaharava, jossa pelaajan teht채v채n채 on etsi�
 Testit suoritetaan komennolla:
 
 `mvn test`
+
+Testikattavuusraportti luodaan komennolla:
+
+`mvn test jacoco:report`
+
+Kattavuusraporttia voi tarkastella avaamalla selaimella tiedosto target/site/jacoco/index.html
+
+### Checkstyle
+
+checkstyle.xml tarkistukset suoritetaan komennolla:
+
+`mvn jxr:jxr checkstyle:checkstyle`
+
+Virheilmoitukset selvi채v채t avaamalla selaimella tiedosto target/site/checkstyle.html
