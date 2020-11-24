@@ -12,23 +12,23 @@ Pelissä on yksi käyttäjä eli pelaaja.
 ## Toiminnallisuus
 
 - Käyttäjä voi pelata kolmella eri vaikeustasolla:
-  - Helppo, laudan koko 9x9, miinoja 10
-  - Keskivaikea, laudan koko 16x16, miinoja 40
-  - Vaikea, laudan koko 30x16, miinoja 99
-- Käyttäjä voi aloittaa uuden pelin 
+  - Helppo, laudan koko 9x9, miinoja 10 -tehty
+  - Keskivaikea, laudan koko 16x16, miinoja 40 -tehty
+  - Vaikea, laudan koko 30x16, miinoja 99 -tehty
+- Käyttäjä voi aloittaa uuden pelin -tehty
 - Käyttäjä voi avata ruudun
-  - Jos avatussa ruudussa on miina, peli päättyy ja pelilauta paljastetaan käyttäjälle
-  - Jos avatun ruudun viereisissä ruuduissa on miinoja, näytetään näiden miinojen määrä
+  - Jos avatussa ruudussa on miina, peli päättyy ja pelilauta paljastetaan käyttäjälle -tehty osittain
+  - Jos avatun ruudun viereisissä ruuduissa on miinoja, näytetään näiden miinojen määrä -tehty
   - Jos avattu ruutu on tyhjä, avataan myös muut ruutuun yhteydessä olevat miinattomat ruudut
 - Käyttäjä voi merkitä ruudun lipulla ja poistaa lipun ruudusta
 - Peli päättyy, kun:
   - Voittoon, jos kaikki ruudut joissa ei ole miinaa saadaan avattua
-  - Tappioon, jos pelaaja osuu miinaan
+  - Tappioon, jos pelaaja osuu miinaan -tehty
 
 ## Jatkokehitysideoita
 
 - Peli näyttää käyttäjälle ajan sekunteina pelin alusta
 - Jos käyttäjä voittaa pelin, pyydetään käyttäjän nimimerkki ja lisätään aika pistetilastoon
 - Käyttäjä voi itse määritellä sopivissa rajoissa oman laudan koon ja miinojen määrän
-- Jos käyttäjä osuu ensimmäisellä arvauksella miinaan, siirretään miina johonkin toiseen ruutuun
+- Jos käyttäjä osuu ensimmäisellä arvauksella miinaan, siirretään miina johonkin toiseen ruutuun -tehty
 - Graafisen ulkoasun kehittely
