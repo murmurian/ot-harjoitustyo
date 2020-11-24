@@ -1,1 +1,1 @@
-![kaaviot](/blob/master/dokumentaatio/kaaviot.JPG)
+![kaaviot](/dokumentaatio/kaaviot.JPG)
