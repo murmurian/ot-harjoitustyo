@@ -7,7 +7,7 @@ public class Game {
 
     public Game(int difficulty) {
         int[] width = new int[] {9, 16, 30};
-        int[] height = new int[] {9, 16, 30};
+        int[] height = new int[] {9, 16, 16};
         int[] mines = new int[] {10, 40, 99};
         this.board = new Board(width[difficulty], height[difficulty], mines[difficulty]);
     }
