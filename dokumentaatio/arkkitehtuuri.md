@@ -1,1 +1,1 @@
-![kaaviot](/images/logo.png)
+![kaaviot](/blob/master/dokumentaatio/kaaviot.JPG)
