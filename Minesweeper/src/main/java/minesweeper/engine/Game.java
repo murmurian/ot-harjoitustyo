@@ -4,6 +4,7 @@ public class Game {
 
     Board board;
     private boolean firstMoveDone;
+    private boolean playerWins;
 
     public Game(int difficulty) {
         int[] width = new int[] {9, 16, 30};
@@ -16,18 +17,24 @@ public class Game {
         return this.board.getBoard();
     }
 
-	public boolean openCell(int x, int y) {
+	public boolean nextMove(int x, int y) {
         if (!firstMoveDone) {
             this.board.generateMinefield(x, y);
             this.firstMoveDone = true;
         }
-
         this.board.openCell(x, y);
-        Cell cell = board.getCell(x, y);
-        if (cell.getIsMine()) {
+        if (board.getGameOver()) {
+            return false;
+        }
+        if (board.allCellsOpen()) {
+            this.playerWins = true;
             return false;
         }
         return true;
+    }
+
+    public boolean playerWins() {
+        return this.playerWins;
     }
     
     public void useSeedValue(int seed) {

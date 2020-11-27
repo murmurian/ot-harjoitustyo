@@ -9,13 +9,16 @@ public class Board {
     private final int width;
     private final int height;
     private int mines;
+    private int cellsLeft;
     private int seed; // Seed value used mainly for generating constant board for testing. It could be
                       // utilized for saving particular board setup for replays.
+    private boolean gameOver;
 
     public Board(int width, int height, int mines) {
         this.width = width;
         this.height = height;
         this.mines = mines;
+        this.cellsLeft = width * height - mines;
         this.board = generateBoard();
         this.seed = generateSeed();
     }
@@ -81,8 +84,29 @@ public class Board {
         }
     }
 
-    public void openCell(int x, int y) {
+    public boolean openCell(int x, int y) {
+        if (x < 0 || x == this.width || y < 0 || y == this.height) {
+            return false;
+        }
+        if (this.board[y][x].getIsOpen()) {
+            return false;
+        }
         this.board[y][x].setIsOpen();
+        if (this.board[y][x].getMinesNear() == 0) {
+            openCell(x - 1, y);
+            openCell(x - 1, y - 1);
+            openCell(x - 1, y + 1);
+            openCell(x + 1, y);
+            openCell(x + 1, y - 1);
+            openCell(x + 1, y + 1);
+            openCell(x, y - 1);
+            openCell(x, y + 1);
+        }
+        if (this.board[y][x].getIsMine()) {
+            this.gameOver = true;
+        }
+        this.cellsLeft--;
+        return true;
     }
 
     public Cell[][] getBoard() {
@@ -105,8 +129,16 @@ public class Board {
         return this.mines;
     }
 
+    public boolean allCellsOpen() {
+        return cellsLeft == 0;
+    } 
+
     public int getSeed() {
         return this.seed;
+    }
+
+    public boolean getGameOver() {
+        return this.gameOver;
     }
 
     public void setSeed(int seed) {

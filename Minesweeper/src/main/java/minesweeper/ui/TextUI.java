@@ -11,9 +11,7 @@ public class TextUI {
     public void newGame() {
         System.out.println("Welcome to Minesweeper! TextUI used for development.");
         System.out.println("Enter difficulty: 1 (easy), 2 (intermediate), 3 (hard) ?");
-
         String difficulty = scanner.nextLine();
-
         switch (difficulty) {
             case "1":
                 game = new Game(0);
@@ -27,10 +25,9 @@ public class TextUI {
             default:
                 game = new Game(0);
         }
-
+        //game.useSeedValue(1337);
         printBoard();
         startGame();
-
     }
 
     private void startGame() {
@@ -45,9 +42,13 @@ public class TextUI {
             if (y.equals("q")) {
                 break;
             }
-            if (!game.openCell(Integer.valueOf(x), Integer.valueOf(y))) {
+            if (!game.nextMove(Integer.valueOf(x), Integer.valueOf(y))) {
                 printBoard();
-                System.out.println("You lost!");
+                if (game.playerWins()) {
+                    System.out.println("You won!");
+                } else {
+                    System.out.println("You lost!");
+                }                
                 break;
             }
 

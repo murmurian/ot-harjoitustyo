@@ -10,4 +10,5 @@ päivä | aika | mitä tein
 20.11 | 1 | Board-luokan testien luontia
 23.11 | 4 | Board-luokan päivitystä, sovelluslogiikan eriyttäminen Game-luokkaan ja käyttöliittymän UI-luokkaan. Miinaan osuminen johtaa häviöön. Checkstyles käyttöönotto ja virheiden korjailua.
 24.11 | 0,5 | reposition päivitystä
+27.11 | 3 | Voitto-tilan lisäys, yhteydessä olevien tyhjien ruutujen avaus automaattisesti. Koodin siistimistä ja logiikan parantelua
 yht. | 12,5 |
