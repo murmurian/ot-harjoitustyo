@@ -109,12 +109,30 @@ public class Board {
         return true;
     }
 
-    public Cell[][] getBoard() {
-        return this.board;
+    public char[][] getBoard() {
+        char[][] gameBoard = new char[this.width][this.height];
+        for (int y = 0; y < this.height; y++) {
+            for (int x = 0; x < this.width; x++) {
+                if (!this.board[y][x].getIsOpen()) {
+                    gameBoard[y][x] = '#';
+                } else if (this.board[y][x].getIsMine()) {
+                    gameBoard[y][x] = '*';
+                } else {
+                    gameBoard[y][x] = (char) (this.board[y][x].getMinesNear() + '0');
+                }
+            }
+        }
+        return gameBoard;
     }
 
-    public Cell getCell(int x, int y) {
-        return this.board[y][x];
+    public void openMines() {
+        for (Cell[] row : this.board) {
+            for (Cell cell : row) {
+                if (cell.getIsMine()) {
+                    cell.setIsOpen();
+                }
+            }
+        }
     }
 
     public int getWidth() {
@@ -131,7 +149,7 @@ public class Board {
 
     public boolean allCellsOpen() {
         return cellsLeft == 0;
-    } 
+    }
 
     public int getSeed() {
         return this.seed;

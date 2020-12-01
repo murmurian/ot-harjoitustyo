@@ -11,4 +11,5 @@ päivä | aika | mitä tein
 23.11 | 4 | Board-luokan päivitystä, sovelluslogiikan eriyttäminen Game-luokkaan ja käyttöliittymän UI-luokkaan. Miinaan osuminen johtaa häviöön. Checkstyles käyttöönotto ja virheiden korjailua.
 24.11 | 0,5 | reposition päivitystä
 27.11 | 3 | Voitto-tilan lisäys, yhteydessä olevien tyhjien ruutujen avaus automaattisesti. Koodin siistimistä ja logiikan parantelua
-yht. | 12,5 |
+1.12 | 2,5 | Game-luokalle itsenäinen tieto pelitilanteesta. Pieniä parannuksia mm. miinojen näyttäminen pelin päätyessä tappioon.
+yht. | 18 |

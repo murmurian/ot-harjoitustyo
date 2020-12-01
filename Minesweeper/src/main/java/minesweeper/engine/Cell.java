@@ -38,7 +38,7 @@ public class Cell {
         this.isFlagged = true;
     }
 
-    @Override
+    /*@Override
     public String toString() {
         if (!isOpen) {
             return " ";
@@ -47,7 +47,7 @@ public class Cell {
             return "*";
         }
         return String.valueOf(minesNear);
-    }
+    }*/
 
     @Override
     public boolean equals(Object o) {

@@ -58,7 +58,7 @@ public class TextUI {
     }
 
     private void printBoard() {
-        System.out.println(Arrays.deepToString(game.getBoard()).replace("], ", "]\n "));
+        System.out.println(Arrays.deepToString(game.getGameState()).replace("], ", "]\n "));
     }
 
 }
