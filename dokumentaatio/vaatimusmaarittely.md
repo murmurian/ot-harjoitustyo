@@ -17,12 +17,12 @@ Pelissä on yksi käyttäjä eli pelaaja.
   - Vaikea, laudan koko 30x16, miinoja 99 -tehty
 - Käyttäjä voi aloittaa uuden pelin -tehty
 - Käyttäjä voi avata ruudun
-  - Jos avatussa ruudussa on miina, peli päättyy ja pelilauta paljastetaan käyttäjälle -tehty osittain
+  - Jos avatussa ruudussa on miina, peli päättyy ja pelilauta paljastetaan käyttäjälle -tehty
   - Jos avatun ruudun viereisissä ruuduissa on miinoja, näytetään näiden miinojen määrä -tehty
-  - Jos avattu ruutu on tyhjä, avataan myös muut ruutuun yhteydessä olevat miinattomat ruudut
+  - Jos avattu ruutu on tyhjä, avataan myös muut ruutuun yhteydessä olevat miinattomat ruudut -tehty
 - Käyttäjä voi merkitä ruudun lipulla ja poistaa lipun ruudusta
 - Peli päättyy, kun:
-  - Voittoon, jos kaikki ruudut joissa ei ole miinaa saadaan avattua
+  - Voittoon, jos kaikki ruudut joissa ei ole miinaa saadaan avattua -tehty
   - Tappioon, jos pelaaja osuu miinaan -tehty
 
 ## Jatkokehitysideoita

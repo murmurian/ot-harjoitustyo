@@ -126,7 +126,7 @@ public class Board {
     }
 
     public char[][] getBoard() {
-        char[][] gameBoard = new char[this.width][this.height];
+        char[][] gameBoard = new char[this.height][this.width];
         for (int y = 0; y < this.height; y++) {
             for (int x = 0; x < this.width; x++) {
                 if (!this.board[y][x].getIsOpen()) {
