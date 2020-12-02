@@ -82,14 +82,13 @@ public class BoardTest {
 
     @Test
     public void openCellRangesWork() {
-        assertFalse(board.openCell(-1, -1));
-        assertFalse(board.openCell(9, 9));
-    }
-
-    @Test
-    public void openCellReturnFalseWhenCellIsOpen() {
-        board.openCell(3, 3);
-        assertFalse(board.openCell(3, 3));
+        board.openCell(-1, -1);
+        board.openCell(9, 9);
+        for (int i = 0; i < 9; i++) {
+            for (int j = 0; j < 9; j++) {
+                assertEquals('#', board.getBoard()[j][i]);
+            }
+        }
     }
 
     @Test

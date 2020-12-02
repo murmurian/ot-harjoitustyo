@@ -96,22 +96,22 @@ public class Board {
         }
     }
 
-    public boolean openCell(int x, int y) {
+    public void openCell(int x, int y) {
         if (x < 0 || x == this.width || y < 0 || y == this.height) {
-            return false;
+            return;
         }
         if (this.board[y][x].getIsOpen()) {
-            return false;
+            return;
+        }              
+        if (this.board[y][x].getIsMine()) {
+            this.gameOver = true;
+            return;
         }
-        this.board[y][x].setIsOpen();
+        this.board[y][x].setIsOpen();  
         if (this.board[y][x].getMinesNear() == 0) {
             openCellsNear(x, y);
         }
-        if (this.board[y][x].getIsMine()) {
-            this.gameOver = true;
-        }
         this.cellsLeft--;
-        return true;
     }
 
     private void openCellsNear(int x, int y) {

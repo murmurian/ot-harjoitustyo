@@ -25,7 +25,7 @@ public class TextUI {
             default:
                 game = new Game(0);
         }
-        //game.useSeedValue(1337);
+        game.useSeedValue(1337);
         printBoard();
         startGame();
     }
