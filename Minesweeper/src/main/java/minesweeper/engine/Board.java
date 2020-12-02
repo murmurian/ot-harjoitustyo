@@ -57,7 +57,13 @@ public class Board {
         }
     }
 
-    public void setMinesNear(int x, int y) {
+    private void setMinesNear(int x, int y) {
+        setMinesUp(x, y);
+        setMinesHorizontal(x, y);
+        setMinesDown(x, y);
+    }
+
+    private void setMinesUp(int x, int y) {
         if (y > 0) {
             this.board[y - 1][x].addMinesNear();
             if (x > 0) {
@@ -67,6 +73,18 @@ public class Board {
                 this.board[y - 1][x + 1].addMinesNear();
             }
         }
+    }
+
+    private void setMinesHorizontal(int x, int y) {
+        if (x > 0) {
+            this.board[y][x - 1].addMinesNear();
+        }
+        if (x < this.width - 1) {
+            this.board[y][x + 1].addMinesNear();
+        }
+    }
+
+    private void setMinesDown(int x, int y) {
         if (y < this.height - 1) {
             this.board[y + 1][x].addMinesNear();
             if (x > 0) {
@@ -75,12 +93,6 @@ public class Board {
             if (x < this.width - 1) {
                 this.board[y + 1][x + 1].addMinesNear();
             }
-        }
-        if (x > 0) {
-            this.board[y][x - 1].addMinesNear();
-        }
-        if (x < this.width - 1) {
-            this.board[y][x + 1].addMinesNear();
         }
     }
 
@@ -93,20 +105,24 @@ public class Board {
         }
         this.board[y][x].setIsOpen();
         if (this.board[y][x].getMinesNear() == 0) {
-            openCell(x - 1, y);
-            openCell(x - 1, y - 1);
-            openCell(x - 1, y + 1);
-            openCell(x + 1, y);
-            openCell(x + 1, y - 1);
-            openCell(x + 1, y + 1);
-            openCell(x, y - 1);
-            openCell(x, y + 1);
+            openCellsNear(x, y);
         }
         if (this.board[y][x].getIsMine()) {
             this.gameOver = true;
         }
         this.cellsLeft--;
         return true;
+    }
+
+    private void openCellsNear(int x, int y) {
+        openCell(x - 1, y);
+        openCell(x - 1, y - 1);
+        openCell(x - 1, y + 1);
+        openCell(x + 1, y);
+        openCell(x + 1, y - 1);
+        openCell(x + 1, y + 1);
+        openCell(x, y - 1);
+        openCell(x, y + 1);
     }
 
     public char[][] getBoard() {

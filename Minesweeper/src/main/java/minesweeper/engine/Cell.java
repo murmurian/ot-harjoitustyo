@@ -49,7 +49,7 @@ public class Cell {
         return String.valueOf(minesNear);
     }*/
 
-    @Override
+    /*@Override
     public boolean equals(Object o) {
         if (o == this) {
             return true;
@@ -59,6 +59,6 @@ public class Cell {
         }
         Cell cell = (Cell) o;
         return isOpen == cell.isOpen && isMine == cell.isMine && isFlagged == cell.isFlagged && minesNear == cell.minesNear;
-    }
+    }*/
 
 }

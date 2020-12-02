@@ -9,7 +9,7 @@ public class TextUI {
     private Scanner scanner = new Scanner(System.in);
 
     public void newGame() {
-        System.out.println("Welcome to Minesweeper! TextUI used for development.");
+        System.out.println("Welcome to Minesweeper! TextUI used for development. Beware, there are no validation for inputs.");
         System.out.println("Enter difficulty: 1 (easy), 2 (intermediate), 3 (hard) ?");
         String difficulty = scanner.nextLine();
         switch (difficulty) {
@@ -32,12 +32,12 @@ public class TextUI {
 
     private void startGame() {
         while (true) {
-            System.out.println("Enter x-coordinate to open (q to quit): ");
+            System.out.println("Enter x-coordinate (0 - width-1, q to quit): ");
             String x = scanner.nextLine();
             if (x.equals("q")) {
                 break;
             }
-            System.out.println("Enter y-coordinate to open (q to quit): ");
+            System.out.println("Enter y-coordinate (0 - height-1, q to quit): ");
             String y = scanner.nextLine();
             if (y.equals("q")) {
                 break;

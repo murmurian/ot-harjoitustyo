@@ -12,4 +12,5 @@ päivä | aika | mitä tein
 24.11 | 0,5 | reposition päivitystä
 27.11 | 3 | Voitto-tilan lisäys, yhteydessä olevien tyhjien ruutujen avaus automaattisesti. Koodin siistimistä ja logiikan parantelua
 1.12 | 2,5 | Game-luokalle itsenäinen tieto pelitilanteesta. Pieniä parannuksia mm. miinojen näyttäminen pelin päätyessä tappioon.
-yht. | 18 |
+2.12 | 2 | Board-luokan siistimistä ja testien päivittelyä.
+yht. | 20 |

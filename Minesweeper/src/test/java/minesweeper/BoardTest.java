@@ -17,6 +17,8 @@ public class BoardTest {
     @Before
     public void setUp() {
         board = new Board(9, 9, 10);
+        board.setSeed(1337);
+        board.generateMinefield(0, 0);
     }
 
     @Test
@@ -39,27 +41,60 @@ public class BoardTest {
 
     @Test
     public void setSeedSetsSeed() {
-        board.setSeed(1337);
-        assertTrue(board.getSeed() == 1337);
+        board.setSeed(31337);
+        assertTrue(board.getSeed() == 31337);
     }
 
-    /*@Test
+    @Test
     public void generateMinefieldGeneratesProperMinefield() {
-        board.setSeed(1337);
-        board.generateMinefield(0, 0);
-        boolean[] mines = new boolean[81];
-        for (char[] row : board.getBoard()) {
-            for (char cell : row) {
-                if (cell == '*') mines++;
-            }
+        board.openMines();
+        assertTrue(board.getBoard()[0][3] == '*');
+        assertTrue(board.getBoard()[0][8] == '*');
+        assertTrue(board.getBoard()[1][0] == '*');
+        assertTrue(board.getBoard()[4][5] == '*');
+        assertTrue(board.getBoard()[5][1] == '*');
+        assertTrue(board.getBoard()[6][4] == '*');
+        assertTrue(board.getBoard()[7][3] == '*');
+        assertTrue(board.getBoard()[7][3] == '*');
+        assertTrue(board.getBoard()[7][5] == '*');
+        assertTrue(board.getBoard()[8][5] == '*');
+        for (int i = 0; i < 9; i++) {
+            assertFalse(board.getBoard()[3][i] == '*');
         }
-        assertEquals(10, mines);
     }
 
-    /*@Test
-    public void openCellOpensCell() {
-        board.openCell(6, 6);
-        Cell[][] cells = board.getBoard();
-        assertTrue(cells[6][6].getIsOpen());
-    }*/
+    @Test
+    public void noMineOnFirstClick() {
+        board = new Board(9, 9, 10);
+        board.setSeed(1337);
+        board.generateMinefield(0, 1);
+        board.openCell(1, 0);
+        assertFalse(board.getBoard()[1][0] == '*');        
+    }
+
+    @Test
+    public void setMinesNearWorks() {
+        board.openCell(4, 8);
+        board.openCell(5, 5);
+        assertTrue(board.getBoard()[5][5] == '2');
+        assertTrue(board.getBoard()[8][4] == '4');
+    }
+
+    @Test
+    public void openCellRangesWork() {
+        assertFalse(board.openCell(-1, -1));
+        assertFalse(board.openCell(9, 9));
+    }
+
+    @Test
+    public void openCellReturnFalseWhenCellIsOpen() {
+        board.openCell(3, 3);
+        assertFalse(board.openCell(3, 3));
+    }
+
+    @Test
+    public void openCellSetsGameOver() {
+        board.openCell(0, 1);
+        assertTrue(board.getGameOver());
+    }
 }
