@@ -11,7 +11,7 @@ Sovellus on pulmapeliklassikko Miinaharava, jossa pelaajan teht채v채n채 on etsi�
 
 [Arkkitehtuurikuvaus](https://github.com/murmurian/ot-harjoitustyo/blob/master/dokumentaatio/arkkitehtuuri.md)
 
-
+[Viikon 5 release](https://github.com/murmurian/ot-harjoitustyo/releases/tag/viikko5)
 
 ## Komentorivitoiminnot
 
@@ -34,3 +34,12 @@ checkstyle.xml tarkistukset suoritetaan komennolla:
 `mvn jxr:jxr checkstyle:checkstyle`
 
 Virheilmoitukset selvi채v채t avaamalla selaimella tiedosto target/site/checkstyle.html
+
+### Suoritettavan jar-tiedoston luominen
+
+Komennolla:
+
+`mvn package`
+
+hakemistoon *target* luodaan suoritettava jar Minesweeper-1.0-SNAPSHOT.jar
+
