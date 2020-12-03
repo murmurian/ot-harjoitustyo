@@ -21,6 +21,7 @@ public class Board {
         this.cellsLeft = width * height - mines;
         this.board = generateBoard();
         this.seed = generateSeed();
+        this.board[2][4].setIsFlagged();
     }
 
     public Cell[][] generateBoard() {
@@ -100,7 +101,7 @@ public class Board {
         if (x < 0 || x == this.width || y < 0 || y == this.height) {
             return;
         }
-        if (this.board[y][x].getIsOpen()) {
+        if (this.board[y][x].getIsOpen() || this.board[y][x].getIsFlagged()) {
             return;
         }              
         if (this.board[y][x].getIsMine()) {
@@ -125,14 +126,27 @@ public class Board {
         openCell(x, y + 1);
     }
 
+    public void flagCell(int x, int y) {
+        if (!this.board[y][x].getIsOpen() && !this.board[y][x].getIsFlagged()) {
+            this.board[y][x].setIsFlagged();
+            System.out.println(this.board[y][x].getIsFlagged());
+        } else if (!this.board[y][x].getIsOpen()) {
+            this.board[y][x].setIsNotFlagged();
+        }
+    }
+
     public char[][] getBoard() {
         char[][] gameBoard = new char[this.height][this.width];
         for (int y = 0; y < this.height; y++) {
             for (int x = 0; x < this.width; x++) {
-                if (!this.board[y][x].getIsOpen()) {
+                if (this.board[y][x].getIsFlagged()) {
+                    gameBoard[y][x] = 'F';
+                } else if (!this.board[y][x].getIsOpen()) {
                     gameBoard[y][x] = '#';
                 } else if (this.board[y][x].getIsMine()) {
                     gameBoard[y][x] = '*';
+                } else if (this.board[y][x].getMinesNear() == 0) {
+                    gameBoard[y][x] = ' ';
                 } else {
                     gameBoard[y][x] = (char) (this.board[y][x].getMinesNear() + '0');
                 }

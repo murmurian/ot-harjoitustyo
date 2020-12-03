@@ -38,6 +38,10 @@ public class Cell {
         this.isFlagged = true;
     }
 
+    public void setIsNotFlagged() {
+        this.isFlagged = false;
+    }
+
     /*@Override
     public String toString() {
         if (!isOpen) {
