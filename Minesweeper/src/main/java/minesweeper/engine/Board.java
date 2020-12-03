@@ -21,7 +21,6 @@ public class Board {
         this.cellsLeft = width * height - mines;
         this.board = generateBoard();
         this.seed = generateSeed();
-        this.board[2][4].setIsFlagged();
     }
 
     public Cell[][] generateBoard() {
