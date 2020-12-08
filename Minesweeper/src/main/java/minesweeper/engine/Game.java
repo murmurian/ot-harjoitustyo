@@ -6,6 +6,8 @@ public class Game {
     private char[][] gameState;
     private boolean firstMoveDone;
     private boolean playerWins;
+    private long startTime;
+    private long endTime;
 
     public Game(int difficulty) {
         int[] width = new int[] {9, 16, 30};
@@ -15,28 +17,53 @@ public class Game {
         this.gameState = board.getBoard();
     }
 
-    /*public Cell[][] getBoard() {
-        return this.board.getBoard();
-    }*/
-
-	public boolean nextMove(int x, int y) {
-        if (!firstMoveDone) {
-            this.board.generateMinefield(x, y);
-            this.firstMoveDone = true;
-        }
+	public boolean openCell(int x, int y) {
+        checkIfFirstMove(x, y);
         this.board.openCell(x, y);
         updateGameState();
-        if (board.getGameOver()) {
+        return (!checkIfMineHit(x, y) && !checkIfPlayerWins());
+    }
+
+    public void flagCell(int x, int y) {
+        this.board.flagCell(x, y);
+        updateGameState();
+        startTimer();
+    }
+
+    private boolean checkIfMineHit(int x, int y) {
+        if (board.getMineHit()) {
+            this.endTime = System.currentTimeMillis();
             this.board.openMines();
             updateGameState();
             this.gameState[y][x] = 'X';
-            return false;
+            return true;
         }
+        return false;
+    }
+
+    private boolean checkIfPlayerWins() {
         if (board.allCellsOpen()) {
+            this.endTime = System.currentTimeMillis();
+            this.board.flagMines();
+            updateGameState();
             this.playerWins = true;
-            return false;
+            return true;
         }
-        return true;
+        return false;
+    }
+
+    private void checkIfFirstMove(int x, int y) {
+        if (!firstMoveDone) {
+            this.board.generateMinefield(x, y);
+            this.firstMoveDone = true;
+            startTimer();
+        }
+    }
+
+    private void startTimer() {
+        if (this.startTime == 0) {
+            this.startTime = System.currentTimeMillis();
+        }
     }
 
     public boolean playerWins() {

@@ -14,4 +14,6 @@ päivä | aika | mitä tein
 1.12. | 2,5 | Game-luokalle itsenäinen tieto pelitilanteesta. Pieniä parannuksia mm. miinojen näyttäminen pelin päätyessä tappioon.
 2.12. | 2 | Board-luokan siistimistä ja testien päivittelyä.
 3.12. | 3 | Liputusominaisuuden lisäys, JavaFX:n opettelua
-yht. | 23 |
+5.12 | 2 | Graafisen käyttöliittymän mockup, ajanoton alustava lisäys.
+7.12 | 2 | JavaFX:n säätämistä työkoneella toimivaksi...
+yht. | 27 |

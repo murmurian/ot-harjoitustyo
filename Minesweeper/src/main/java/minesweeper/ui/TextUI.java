@@ -25,7 +25,10 @@ public class TextUI {
             default:
                 game = new Game(0);
         }
-        //game.useSeedValue(1337);
+
+        // To play a constant board, set a seed value:
+        game.useSeedValue(1337);
+        
         printBoard();
         startGame();
     }
@@ -42,7 +45,7 @@ public class TextUI {
             if (y.equals("q")) {
                 break;
             }
-            if (!game.nextMove(Integer.valueOf(x), Integer.valueOf(y))) {
+            if (!game.openCell(Integer.valueOf(x), Integer.valueOf(y))) {
                 printBoard();
                 if (game.playerWins()) {
                     System.out.println("You won!");

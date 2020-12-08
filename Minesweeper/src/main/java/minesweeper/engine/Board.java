@@ -9,16 +9,16 @@ public class Board {
     private final int width;
     private final int height;
     private int mines;
-    private int cellsLeft;
+    private int cellsNotOpen;
     private int seed; // Seed value used mainly for generating constant board for testing. It could be
                       // utilized for saving particular board setup for replays.
-    private boolean gameOver;
+    private boolean mineHit;
 
     public Board(int width, int height, int mines) {
         this.width = width;
         this.height = height;
         this.mines = mines;
-        this.cellsLeft = width * height - mines;
+        this.cellsNotOpen = width * height - mines;
         this.board = generateBoard();
         this.seed = generateSeed();
     }
@@ -97,32 +97,29 @@ public class Board {
     }
 
     public void openCell(int x, int y) {
-        if (x < 0 || x == this.width || y < 0 || y == this.height) {
+        if (x < 0 || x >= this.width || y < 0 || y >= this.height) {
             return;
         }
         if (this.board[y][x].getIsOpen() || this.board[y][x].getIsFlagged()) {
             return;
         }              
         if (this.board[y][x].getIsMine()) {
-            this.gameOver = true;
+            this.mineHit = true;
             return;
         }
         this.board[y][x].setIsOpen();  
         if (this.board[y][x].getMinesNear() == 0) {
             openCellsNear(x, y);
         }
-        this.cellsLeft--;
+        this.cellsNotOpen--;
     }
 
     private void openCellsNear(int x, int y) {
-        openCell(x - 1, y);
-        openCell(x - 1, y - 1);
-        openCell(x - 1, y + 1);
-        openCell(x + 1, y);
-        openCell(x + 1, y - 1);
-        openCell(x + 1, y + 1);
-        openCell(x, y - 1);
-        openCell(x, y + 1);
+        for (int i = -1; i < 2; i++) {
+            for (int j = -1; j < 2; j++) {
+                openCell(x + i, y + j);
+            }
+        }
     }
 
     public void flagCell(int x, int y) {
@@ -164,6 +161,16 @@ public class Board {
         }
     }
 
+    public void flagMines() {
+        for (Cell[] row : this.board) {
+            for (Cell cell : row) {
+                if (cell.getIsMine()) {
+                    cell.setIsFlagged();
+                }
+            }
+        }
+    }
+
     public int getWidth() {
         return this.width;
     }
@@ -177,15 +184,15 @@ public class Board {
     }
 
     public boolean allCellsOpen() {
-        return cellsLeft == 0;
+        return cellsNotOpen == 0;
     }
 
     public int getSeed() {
         return this.seed;
     }
 
-    public boolean getGameOver() {
-        return this.gameOver;
+    public boolean getMineHit() {
+        return this.mineHit;
     }
 
     public void setSeed(int seed) {

@@ -94,6 +94,6 @@ public class BoardTest {
     @Test
     public void openCellSetsGameOver() {
         board.openCell(0, 1);
-        assertTrue(board.getGameOver());
+        assertTrue(board.getMineHit());
     }
 }
