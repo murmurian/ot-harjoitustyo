@@ -28,21 +28,9 @@ public class BoardTest {
         assertTrue(board.getWidth() == 9);
         assertTrue(board.getHeight() == 9);
         assertTrue(board.getMines() == 10);
-        assertTrue(board.getSeed() >= 0);
         assertFalse(board.allCellsOpen());
         assertTrue(Arrays.deepEquals(board.getBoard(), clone.getBoard()));
         assertFalse(Arrays.deepEquals(board.getBoard(), random.getBoard()));
-    }
-
-    @Test
-    public void generateSeedGeneratesRandomSeed() {
-        assertFalse(board.generateSeed() == board.generateSeed()); // If this test fails, consider participating lottery.
-    }
-
-    @Test
-    public void setSeedSetsSeed() {
-        board.setSeed(31337);
-        assertTrue(board.getSeed() == 31337);
     }
 
     @Test
