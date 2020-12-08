@@ -4,14 +4,27 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Random;
 
+/**
+ * Class has methods for creating empty board and setting the mines with or
+ * without a seed value.
+ */
+
 public class Generator {
     private Cell[][] board;
     private int seed; // Seed value used mainly for generating constant board for testing. It could be
                       // utilized for saving particular board setup for replays.
 
+    /**
+     * Basic genator object is created with random seed value.
+     */
+
     public Generator() {
         this.seed = generateSeed();
     }
+
+    /**
+     * Generates an empty board.
+     */
 
     public Cell[][] generateBoard(int width, int height) {
         Cell[][] board = new Cell[height][width];
@@ -23,17 +36,27 @@ public class Generator {
         return board;
     }
 
-    public int generateSeed() {
+    private int generateSeed() {
         Random random = new Random();
         return random.nextInt(Integer.MAX_VALUE);
     }
+
+    /**
+     * Method places mines on the empty board when first cell is opened. The first
+     * opened cell is never a mine.
+     * 
+     * @param firstX     x-coordinate of the first opened cell
+     * @param firstY     y-coordinate of the first opened cell
+     * @param emptyBoard method requires an empty board
+     * @param mines      number of mines to be set
+     */
 
     public void generateMinefield(int firstX, int firstY, Cell[][] emptyBoard, int mines) {
         this.board = emptyBoard;
         ArrayList<Integer> list = new ArrayList<>();
         int x, y = 0;
         int mineCount = mines;
-        for (int i = 0; i <  this.board.length * this.board[0].length; i++) {
+        for (int i = 0; i < this.board.length * this.board[0].length; i++) {
             list.add(i);
         }
         Collections.shuffle(list, new Random(this.seed));
@@ -88,9 +111,18 @@ public class Generator {
         }
     }
 
+    /**
+     * Sets a custom seed value. Can be used for generating consist board for
+     * testing or saving a board for replay.
+     */
+
     public void setSeed(int seed) {
         this.seed = seed;
     }
+
+    /**
+     * Returns board. Use after mines have been generated.
+     */
 
     public Cell[][] getBoard() {
         return this.board;

@@ -1,5 +1,10 @@
 package minesweeper.engine;
 
+/**
+ * Class controls the state of a single cell on the board.
+ * Class has only setters and getters.
+ */
+
 public class Cell {
     private boolean isOpen;
     private boolean isMine;

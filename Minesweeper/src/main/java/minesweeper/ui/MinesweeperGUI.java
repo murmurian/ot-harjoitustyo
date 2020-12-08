@@ -13,15 +13,23 @@ import javafx.scene.layout.GridPane;
 import javafx.scene.text.Font;
 import javafx.stage.Stage;
 
+/**
+ * Graphic user interface.
+ */
+
 public class MinesweeperGUI extends Application {
 
     private GridPane board;
     private Game game;
 
+    /**
+     * Creates the layout.
+     */
+
     @Override
     public void start(Stage stage) throws Exception {
         game = new Game(0);
-        game.useSeedValue(1337);
+        // game.useSeedValue(1337);
         Font width = Font.font("Monospaced", 20);
         Label label = new Label("Minesweeper");
         label.setFont(width);
@@ -43,7 +51,7 @@ public class MinesweeperGUI extends Application {
                 Button cell = new Button(String.valueOf(game.getGameState()[y][x]));
                 cell.setFont(width);
                 board.add(cell, x, y);
-                if (game.getGameState()[y][x] != '#' && game.getGameState()[y][x] != 'F') {                    
+                if (game.getGameState()[y][x] != '#' && game.getGameState()[y][x] != 'F') {
                     cell.setDisable(true);
                     cell.setStyle("-fx-text-fill: #000000");
                     // cell.setStyle("-fx-background-color: #ff00ff");
@@ -54,7 +62,7 @@ public class MinesweeperGUI extends Application {
                 }
                 int rx = x;
                 int ry = y;
-                cell.setOnMouseClicked((event) -> {                    
+                cell.setOnMouseClicked((event) -> {
                     if (event.getButton() == MouseButton.PRIMARY) {
                         game.openCell(rx, ry);
                     } else if (event.getButton() == MouseButton.SECONDARY) {

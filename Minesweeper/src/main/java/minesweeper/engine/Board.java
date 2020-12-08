@@ -1,5 +1,9 @@
 package minesweeper.engine;
 
+/**
+ * Class controls the creation and the state of the board.
+ */
+
 public class Board {
     private Cell[][] board;
     private final int width;
@@ -8,6 +12,10 @@ public class Board {
     private int cellsNotOpen;
     private boolean mineHit;
     private Generator generator;
+
+    /**
+     * Constructor creates an empty board with specified values.
+     */
 
     public Board(int width, int height, int mines) {
         this.width = width;
@@ -18,10 +26,22 @@ public class Board {
         this.board = generator.generateBoard(width, height);
     }
 
+    /**
+     * Method places mines on the empty board when first cell is opened.
+     * The first opened cell is never a mine.
+     * @param firstX x-coordinate of the first opened cell
+     * @param firstY y-coordinate of the first opened cell
+     */
+
     public void generateMinefield(int firstX, int firstY) {
         generator.generateMinefield(firstX, firstY, this.board, mines);
         this.board = generator.getBoard();
     }
+
+    /**
+     * Opens cell on the board if it is not open or flagged.
+     * Recurcively opens adjacent cells, if the cell has zero mines near.
+     */
 
     public void openCell(int x, int y) {
         if (x < 0 || x >= this.width || y < 0 || y >= this.height) {
@@ -29,12 +49,12 @@ public class Board {
         }
         if (this.board[y][x].getIsOpen() || this.board[y][x].getIsFlagged()) {
             return;
-        }              
+        }
         if (this.board[y][x].getIsMine()) {
             this.mineHit = true;
             return;
         }
-        this.board[y][x].setIsOpen();  
+        this.board[y][x].setIsOpen();
         if (this.board[y][x].getMinesNear() == 0) {
             openCellsNear(x, y);
         }
@@ -49,6 +69,10 @@ public class Board {
         }
     }
 
+    /**
+     * Places a flag on the cell or removes it.
+     */
+
     public void flagCell(int x, int y) {
         if (!this.board[y][x].getIsOpen() && !this.board[y][x].getIsFlagged()) {
             this.board[y][x].setIsFlagged();
@@ -57,6 +81,10 @@ public class Board {
             this.board[y][x].setIsNotFlagged();
         }
     }
+
+    /**
+     * Returns a char array representation of the game state.
+     */
 
     public char[][] getBoard() {
         char[][] gameBoard = new char[this.height][this.width];
@@ -78,6 +106,11 @@ public class Board {
         return gameBoard;
     }
 
+    /**
+     * Opens all the cells with mines.
+     * Call this method when player hits mine.
+     */
+
     public void openMines() {
         for (Cell[] row : this.board) {
             for (Cell cell : row) {
@@ -87,6 +120,11 @@ public class Board {
             }
         }
     }
+
+    /**
+     * Flags all the unopened cells.
+     * Call this method when all the cells without mines are open.
+     */
 
     public void flagMines() {
         for (Cell[] row : this.board) {
@@ -109,6 +147,10 @@ public class Board {
     public int getMines() {
         return this.mines;
     }
+
+    /**
+     * Return true when all cells without mine have been opened.
+     */
 
     public boolean allCellsOpen() {
         return cellsNotOpen == 0;
