@@ -60,4 +60,12 @@ public class CellTest {
         cell.addMinesNear();
         assertEquals(1, cell.getMinesNear());
     }
+
+    @Test
+    public void setIsNotFlaggedRemovesFlag() {
+        cell.setIsFlagged();
+        assertTrue(cell.getIsFlagged());
+        cell.setIsNotFlagged();
+        assertFalse(cell.getIsFlagged());
+    }
 }

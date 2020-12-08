@@ -16,5 +16,5 @@ päivä | aika | mitä tein
 3.12. | 3 | Liputusominaisuuden lisäys, JavaFX:n opettelua
 5.12 | 2 | Graafisen käyttöliittymän mockup, ajanoton alustava lisäys.
 7.12 | 2 | JavaFX:n säätämistä työkoneella toimivaksi...
-8.12. | 2 | Liputus hiiren oikealla napilla GUI:ssa. Miinakentän luonti eriytetty Board-luokasta omaksi Generator-luokaksi.
-yht. | 29 |
+8.12. | 3 | Liputus hiiren oikealla napilla GUI:ssa. Miinakentän luonti eriytetty Board-luokasta omaksi Generator-luokaksi. GameTest-luokka luotu ja pari testiä lisätty.
+yht. | 30 |
