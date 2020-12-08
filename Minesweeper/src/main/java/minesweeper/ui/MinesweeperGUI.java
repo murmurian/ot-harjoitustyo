@@ -21,31 +21,29 @@ public class MinesweeperGUI extends Application {
     public void start(Stage stage) throws Exception {
         game = new Game(0);
         game.useSeedValue(1337);
-        Font tasaleveys = Font.font("Monospaced", 20);
-        Label pelitilanne = new Label("Vuoro: ");
-        pelitilanne.setFont(tasaleveys);
-        BorderPane asettelu = new BorderPane();
-        asettelu.setTop(pelitilanne);
+        Font width = Font.font("Monospaced", 20);
+        Label label = new Label("Minesweeper");
+        label.setFont(width);
+        BorderPane layout = new BorderPane();
+        layout.setTop(label);
         board = new GridPane();
         board.setPadding(new Insets(10, 10, 10, 10));
         drawButtons();
-        asettelu.setCenter(board);
-        Scene nakyma = new Scene(asettelu);
-        stage.setScene(nakyma);
+        layout.setCenter(board);
+        Scene view = new Scene(layout);
+        stage.setScene(view);
         stage.show();
     }
 
     private void drawButtons() {
-        Font tasaleveys = Font.font("Monospaced", 15);
+        Font width = Font.font("Monospaced", 15);
         for (int y = 0; y < 9; y++) {
             for (int x = 0; x < 9; x++) {
                 Button cell = new Button(String.valueOf(game.getGameState()[y][x]));
-                cell.setFont(tasaleveys);
-                Label label = new Label(String.valueOf(game.getGameState()[y][x]));
-                label.setFont(tasaleveys);
+                cell.setFont(width);
                 
                 if (game.getGameState()[y][x] != '#') {
-                    board.add(label, x, y);
+                    board.add(cell, x, y);
                     cell.setDisable(true);
                     cell.setStyle("-fx-text-fill: #000000");
                     //cell.setStyle("-fx-background-color: #ff00ff");                    
