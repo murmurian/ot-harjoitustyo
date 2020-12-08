@@ -23,9 +23,17 @@ public class Cell {
         return this.isFlagged;
     }
 
+    /**
+     * Sets cell open.
+     */
+
     public void setIsOpen() {
         this.isOpen = true;
     }
+
+    /**
+     * Sets cell as mine.
+     */
 
     public void setIsMine() {
         this.isMine = true;
@@ -35,13 +43,25 @@ public class Cell {
         return this.minesNear;
     }
 
+    /**
+     * Adds one to minesNear value.
+     */
+
     public void addMinesNear() {
         this.minesNear++;
     }
 
+    /**
+     * Sets cell flagged.
+     */
+
     public void setIsFlagged() {
         this.isFlagged = true;
     }
+
+    /**
+     * Removes flag from cell.
+     */
 
     public void setIsNotFlagged() {
         this.isFlagged = false;

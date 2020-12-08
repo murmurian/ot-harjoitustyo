@@ -24,6 +24,9 @@ public class Generator {
 
     /**
      * Generates an empty board.
+     * @param width Board width.
+     * @param height Board height.
+     * @return Returns Cell[][].
      */
 
     public Cell[][] generateBoard(int width, int height) {
@@ -114,6 +117,7 @@ public class Generator {
     /**
      * Sets a custom seed value. Can be used for generating consist board for
      * testing or saving a board for replay.
+     * @param seed Seed value preferred.
      */
 
     public void setSeed(int seed) {
@@ -122,6 +126,7 @@ public class Generator {
 
     /**
      * Returns board. Use after mines have been generated.
+     * @return Returns Cell[][].
      */
 
     public Cell[][] getBoard() {

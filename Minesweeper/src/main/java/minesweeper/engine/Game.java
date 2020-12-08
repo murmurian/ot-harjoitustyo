@@ -1,5 +1,9 @@
 package minesweeper.engine;
 
+/**
+ * Class for the game logic.
+ */
+
 public class Game {
 
     Board board;
@@ -9,20 +13,38 @@ public class Game {
     private long startTime;
     private long endTime;
 
+    /**
+     * Sets up a new game.
+     * @param difficulty 0 = easy, 1 = intermediate, 2 = hard
+     */
+
     public Game(int difficulty) {
-        int[] width = new int[] {9, 16, 30};
-        int[] height = new int[] {9, 16, 16};
-        int[] mines = new int[] {10, 40, 99};
+        int[] width = new int[] { 9, 16, 30 };
+        int[] height = new int[] { 9, 16, 16 };
+        int[] mines = new int[] { 10, 40, 99 };
         this.board = new Board(width[difficulty], height[difficulty], mines[difficulty]);
         this.gameState = board.getBoard();
     }
 
-	public boolean openCell(int x, int y) {
+    /**
+     * Opens a cell, updates the game state and checks if end conditions are met.
+     * @param x x-coordinate.
+     * @param y y-coordinate.
+     * @return Returns true if game continues.
+     */
+
+    public boolean openCell(int x, int y) {
         checkIfFirstMove(x, y);
         this.board.openCell(x, y);
         updateGameState();
         return (!checkIfMineHit(x, y) && !checkIfPlayerWins());
     }
+
+    /**
+     * Toggles flag.
+     * @param x x-coordinate.
+     * @param y y-coordinate.
+     */
 
     public void flagCell(int x, int y) {
         this.board.flagCell(x, y);
@@ -66,10 +88,20 @@ public class Game {
         }
     }
 
+    /**
+     * Returns win status.
+     * @return true if player has won.
+     */
+
     public boolean playerWins() {
         return this.playerWins;
     }
-    
+
+    /**
+     * Sets seed value.
+     * @param seed Value to be used.
+     */
+
     public void useSeedValue(int seed) {
         this.board.setSeed(seed);
     }
@@ -77,6 +109,11 @@ public class Game {
     private void updateGameState() {
         this.gameState = board.getBoard();
     }
+
+    /**
+     * Returns a char array representation of the game state.
+     * @return game state representation.
+     */
 
     public char[][] getGameState() {
         return this.gameState;

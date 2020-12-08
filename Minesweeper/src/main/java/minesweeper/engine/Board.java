@@ -15,6 +15,9 @@ public class Board {
 
     /**
      * Constructor creates an empty board with specified values.
+     * @param width Game board width.
+     * @param height Game board height.
+     * @param mines Number of mines.
      */
 
     public Board(int width, int height, int mines) {
@@ -41,6 +44,8 @@ public class Board {
     /**
      * Opens cell on the board if it is not open or flagged.
      * Recurcively opens adjacent cells, if the cell has zero mines near.
+     * @param x x-coordinate.
+     * @param y y-coordinate.
      */
 
     public void openCell(int x, int y) {
@@ -71,6 +76,8 @@ public class Board {
 
     /**
      * Places a flag on the cell or removes it.
+     * @param x x-coordinate.
+     * @param y y-coordinate.
      */
 
     public void flagCell(int x, int y) {
@@ -84,6 +91,7 @@ public class Board {
 
     /**
      * Returns a char array representation of the game state.
+     * @return char[][] array.
      */
 
     public char[][] getBoard() {
@@ -149,16 +157,27 @@ public class Board {
     }
 
     /**
-     * Return true when all cells without mine have been opened.
+     * Returns true when all cells without mine have been opened.
+     * @return boolean value.
      */
 
     public boolean allCellsOpen() {
         return cellsNotOpen == 0;
     }
 
+    /**
+     * Returns true if mine has been hit.
+     * @return mineHit boolean value.
+     */
+
     public boolean getMineHit() {
         return this.mineHit;
     }
+
+    /**
+     * Sets seed value for minefield generation.
+     * @param seed Preferred seed value.
+     */
 
     public void setSeed(int seed) {
         generator.setSeed(seed);
