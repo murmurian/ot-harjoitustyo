@@ -15,6 +15,8 @@ Sovellus on pulmapeliklassikko Miinaharava, jossa pelaajan tehtävänä on etsi�
 
 [Viikon 5 release](https://github.com/murmurian/ot-harjoitustyo/releases/tag/viikko5)
 
+[Viikon 6 release](https://github.com/murmurian/ot-harjoitustyo/releases/tag/Viikko6)
+
 ## Komentorivitoiminnot
 
 ### Testaus
