@@ -47,3 +47,13 @@ Komennolla:
 
 hakemistoon *target* luodaan suoritettava jar Minesweeper-1.0-SNAPSHOT.jar
 
+### JavaDoc
+
+Komennolla:
+
+`mvn javadoc:javadoc`
+
+luodaan JavaDoc tiedosoon target/site/apidocs/index.html
+
+
+
