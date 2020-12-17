@@ -63,9 +63,13 @@ public class Generator {
             list.add(i);
         }
         Collections.shuffle(list, new Random(this.seed));
+        System.out.println(this.board.length);
+        System.out.println(this.board[0].length);
+        System.out.println(list.toString());
+
         for (int i = 0; i < mineCount; i++) {
-            y = list.get(i) / this.board.length;
-            x = list.get(i) % this.board[0].length;
+            y = list.get(i) % this.board.length;
+            x = list.get(i) / this.board[0].length;
             if (x == firstX && y == firstY) {
                 mineCount++;
                 continue;
@@ -87,7 +91,7 @@ public class Generator {
             if (x > 0) {
                 this.board[y - 1][x - 1].addMinesNear();
             }
-            if (x < this.board.length - 1) {
+            if (x < this.board[0].length - 1) {
                 this.board[y - 1][x + 1].addMinesNear();
             }
         }
@@ -97,18 +101,18 @@ public class Generator {
         if (x > 0) {
             this.board[y][x - 1].addMinesNear();
         }
-        if (x < this.board.length - 1) {
+        if (x < this.board[0].length - 1) {
             this.board[y][x + 1].addMinesNear();
         }
     }
 
     private void setMinesDown(int x, int y) {
-        if (y < this.board[0].length - 1) {
+        if (y < this.board.length - 1) {
             this.board[y + 1][x].addMinesNear();
             if (x > 0) {
                 this.board[y + 1][x - 1].addMinesNear();
             }
-            if (x < this.board.length - 1) {
+            if (x < this.board[0].length - 1) {
                 this.board[y + 1][x + 1].addMinesNear();
             }
         }

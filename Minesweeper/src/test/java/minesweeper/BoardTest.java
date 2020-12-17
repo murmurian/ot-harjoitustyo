@@ -35,18 +35,18 @@ public class BoardTest {
     @Test
     public void generateMinefieldGeneratesProperMinefield() {
         board.openMines();
-        assertTrue(board.getBoard()[0][3] == '*');
-        assertTrue(board.getBoard()[0][8] == '*');
-        assertTrue(board.getBoard()[1][0] == '*');
-        assertTrue(board.getBoard()[4][5] == '*');
-        assertTrue(board.getBoard()[5][1] == '*');
-        assertTrue(board.getBoard()[6][4] == '*');
-        assertTrue(board.getBoard()[7][3] == '*');
-        assertTrue(board.getBoard()[7][3] == '*');
-        assertTrue(board.getBoard()[7][5] == '*');
-        assertTrue(board.getBoard()[8][5] == '*');
+        assertTrue(board.getBoard()[3][0] == '*');
+        assertTrue(board.getBoard()[8][0] == '*');
+        assertTrue(board.getBoard()[0][1] == '*');
+        assertTrue(board.getBoard()[5][4] == '*');
+        assertTrue(board.getBoard()[1][5] == '*');
+        assertTrue(board.getBoard()[4][6] == '*');
+        assertTrue(board.getBoard()[3][7] == '*');
+        assertTrue(board.getBoard()[3][7] == '*');
+        assertTrue(board.getBoard()[5][7] == '*');
+        assertTrue(board.getBoard()[5][8] == '*');
         for (int i = 0; i < 9; i++) {
-            assertFalse(board.getBoard()[3][i] == '*');
+            assertFalse(board.getBoard()[i][3] == '*');
         }
     }
 
@@ -61,10 +61,10 @@ public class BoardTest {
 
     @Test
     public void setMinesNearWorks() {
-        board.openCell(4, 8);
+        board.openCell(8, 4);
         board.openCell(5, 5);
         assertTrue(board.getBoard()[5][5] == '2');
-        assertTrue(board.getBoard()[8][4] == '4');
+        assertTrue(board.getBoard()[4][8] == '4');
     }
 
     @Test
@@ -80,7 +80,7 @@ public class BoardTest {
 
     @Test
     public void openCellSetsGameOver() {
-        board.openCell(0, 1);
+        board.openCell(1, 0);
         assertTrue(board.getMineHit());
     }
 }

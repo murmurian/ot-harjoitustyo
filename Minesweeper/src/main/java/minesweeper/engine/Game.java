@@ -26,6 +26,15 @@ public class Game {
         this.gameState = board.getBoard();
     }
 
+    public Game(int width, int height, int mines) {
+        if (mines >= width * height) {
+            this.board = new Board(width, height, width * height - 1);
+        } else {
+            this.board = new Board(width, height, mines);
+        }        
+        this.gameState = board.getBoard();
+    }
+
     /**
      * Opens a cell, updates the game state and checks if end conditions are met.
      * @param x x-coordinate.
@@ -117,5 +126,23 @@ public class Game {
 
     public char[][] getGameState() {
         return this.gameState;
+    }
+
+    /**
+     * Returns system time from first opened cell.
+     * @return start time.
+     */
+
+    public long getStartTime() {
+        return this.startTime;
+    }
+
+    /**
+     * Returns system time of the moment player has won or lost.
+     * @return end time.
+     */
+
+    public long getEndTime() {
+        return this.endTime;
     }
 }

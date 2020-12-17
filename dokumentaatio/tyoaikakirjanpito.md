@@ -17,4 +17,5 @@ päivä | aika | mitä tein
 5.12 | 2 | Graafisen käyttöliittymän mockup, ajanoton alustava lisäys.
 7.12 | 2 | JavaFX:n säätämistä työkoneella toimivaksi...
 8.12. | 5 | Liputus hiiren oikealla napilla GUI:ssa. Miinakentän luonti eriytetty Board-luokasta omaksi Generator-luokaksi. GameTest-luokka luotu ja pari testiä lisätty. JavaDocin aloitus.
+17.12. | 5 | Käyttöliittymän kehittelyä.
 yht. | 32 |
