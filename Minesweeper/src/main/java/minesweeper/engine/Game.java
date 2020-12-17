@@ -1,17 +1,20 @@
 package minesweeper.engine;
 
+import minesweeper.dao.FileHighscoresDao;
+
 /**
  * Class for the game logic.
  */
 
 public class Game {
 
-    Board board;
+    private Board board;
     private char[][] gameState;
     private boolean firstMoveDone;
     private boolean playerWins;
     private long startTime;
     private long endTime;
+    private int difficulty;
 
     /**
      * Sets up a new game.
@@ -19,6 +22,7 @@ public class Game {
      */
 
     public Game(int difficulty) {
+        this.difficulty = difficulty;
         int[] width = new int[] { 9, 16, 30 };
         int[] height = new int[] { 9, 16, 16 };
         int[] mines = new int[] { 10, 40, 99 };
@@ -26,7 +30,15 @@ public class Game {
         this.gameState = board.getBoard();
     }
 
+    /**
+     * Sets up a new game for custom difficulty.
+     * @param width Custom width.
+     * @param height Custom height.
+     * @param mines Custom number of mines.
+     */
+
     public Game(int width, int height, int mines) {
+        this.difficulty = 4;
         if (mines >= width * height) {
             this.board = new Board(width, height, width * height - 1);
         } else {
@@ -42,11 +54,12 @@ public class Game {
      * @return Returns true if game continues.
      */
 
-    public boolean openCell(int x, int y) {
+    public void openCell(int x, int y) {
         checkIfFirstMove(x, y);
         this.board.openCell(x, y);
         updateGameState();
-        return (!checkIfMineHit(x, y) && !checkIfPlayerWins());
+        checkIfMineHit(x, y);
+        checkIfPlayerWins();
     }
 
     /**
@@ -145,4 +158,9 @@ public class Game {
     public long getEndTime() {
         return this.endTime;
     }
+
+    public boolean isHighScore() throws Exception {
+        FileHighscoresDao scores = new FileHighscoresDao("scores.txt");        
+        return scores.checkIfHighscore(difficulty, (int)((this.endTime - this.startTime) / 1000));
+	}
 }

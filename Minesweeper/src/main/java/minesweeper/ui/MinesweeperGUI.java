@@ -6,21 +6,16 @@ import javafx.application.Application;
 import static javafx.application.Application.launch;
 import javafx.application.Platform;
 import javafx.geometry.Insets;
-import javafx.geometry.Orientation;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.Slider;
+import javafx.scene.control.TextInputDialog;
 import javafx.scene.control.ToggleGroup;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseButton;
-import javafx.scene.layout.Background;
-import javafx.scene.layout.BackgroundImage;
-import javafx.scene.layout.BackgroundPosition;
-import javafx.scene.layout.BackgroundRepeat;
-import javafx.scene.layout.BackgroundSize;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
@@ -39,7 +34,6 @@ public class MinesweeperGUI extends Application {
     private BorderPane topRow;
     private VBox leftColumn;
     private Font font;
-    private int difficulty;
     private Label clock;
     private Button newGame;
     private RadioButton easy;
@@ -57,7 +51,6 @@ public class MinesweeperGUI extends Application {
         topRow = new BorderPane();
         leftColumn = new VBox();
         font = Font.font("Monospaced", 15);
-        difficulty = 0;
     }
 
     /**
@@ -145,14 +138,14 @@ public class MinesweeperGUI extends Application {
         leftColumn.getChildren().addAll(newGame, easy, intermediate, hard, custom);
         leftColumn.setSpacing(5);
         leftColumn.getChildren().addAll(new HBox(new Label("Width: "), widthValue), width,
-                new HBox(new Label("Height: "), heightValue), height,
-                new HBox(new Label("Mines: "), minesValue), mines);
+                new HBox(new Label("Height: "), heightValue), height, new HBox(new Label("Mines: "), minesValue),
+                mines);
         layout.setLeft(leftColumn);
     }
 
     private void drawButtons() {
         board.getChildren().clear();
-        Image image = new Image("file:kolmio.jpg");
+        //Image image = new Image("file:kolmio.jpg");
 
         for (int y = 0; y < game.getGameState().length; y++) {
             for (int x = 0; x < game.getGameState()[0].length; x++) {
@@ -160,20 +153,20 @@ public class MinesweeperGUI extends Application {
                 cell.setFont(font);
                 board.add(cell, x, y);
                 cell.setFocusTraversable(false);
-                ImageView imageView = new ImageView(image);
+                //ImageView imageView = new ImageView(image);
 
                 cell.setMinSize(30, 30);
                 cell.setMaxSize(30, 30);
-                
-                //cell.setStyle("-fx-focus-color: transparent;");
-                //cell.setStyle("-fx-faint-focus-color: transparent;");
+
+                // cell.setStyle("-fx-focus-color: transparent;");
+                // cell.setStyle("-fx-faint-focus-color: transparent;");
                 if (game.getGameState()[y][x] != '#' && game.getGameState()[y][x] != 'F') {
                     cell.setDisable(true);
                     cell.setStyle("-fx-text-fill: #000000");
                     // cell.setStyle("-fx-background-color: #ff00ff");
                 } else if (game.getGameState()[y][x] == '#') {
                     cell.setText(" ");
-                    //cell.setGraphic(imageView);
+                    // cell.setGraphic(imageView);
                 } else {
                     cell.setText("F");
                 }
@@ -183,6 +176,14 @@ public class MinesweeperGUI extends Application {
                     cell.setOnMouseClicked((event) -> {
                         if (event.getButton() == MouseButton.PRIMARY) {
                             game.openCell(rx, ry);
+                            if (game.playerWins()) {
+                                try {
+                                    checkIfHighScore();
+                                } catch (Exception e) {
+                                    // TODO Auto-generated catch block
+                                    e.printStackTrace();
+                                }
+                            }
                         } else if (event.getButton() == MouseButton.SECONDARY) {
                             game.flagCell(rx, ry);
                         }
@@ -190,6 +191,16 @@ public class MinesweeperGUI extends Application {
                     });
                 }
             }
+        }
+    }
+
+    private void checkIfHighScore() throws Exception {
+        if (game.isHighScore()) {
+            TextInputDialog dialog = new TextInputDialog("walter");
+            dialog.setTitle("Text Input Dialog");
+            dialog.setHeaderText("Look, a Text Input Dialog");
+            dialog.setContentText("Please enter your name:");
+            dialog.show();
         }
     }
 

@@ -1,6 +1,7 @@
 package minesweeper.ui;
 
 import minesweeper.engine.*;
+import minesweeper.dao.*;
 import java.util.Arrays;
 import java.util.Scanner;
 
@@ -8,7 +9,7 @@ public class TextUI {
     private Game game;
     private Scanner scanner = new Scanner(System.in);
 
-    public void newGame() {
+    public void newGame() throws Exception {
         System.out.println("Welcome to Minesweeper! TextUI used for development. Beware, there are no validation for inputs.");
         System.out.println("Enter difficulty: 1 (easy), 2 (intermediate), 3 (hard) ?");
         String difficulty = scanner.nextLine();
@@ -28,6 +29,11 @@ public class TextUI {
 
         // To play a constant board, set a seed value:
         game.useSeedValue(1337);
+        FileHighscoresDao scores = new FileHighscoresDao("scores.txt");
+        scores.addScore(0, 222, "dude!!");
+        scores.addScore(0, 888, "man!!");
+        scores.addScore(0, 44, "sweet!!");
+        System.out.println(scores.getHighscores(0).toString());
         
         printBoard();
         startGame();
@@ -45,7 +51,7 @@ public class TextUI {
             if (y.equals("q")) {
                 break;
             }
-            if (!game.openCell(Integer.valueOf(x), Integer.valueOf(y))) {
+            /*if (!game.openCell(Integer.valueOf(x), Integer.valueOf(y))) {
                 printBoard();
                 if (game.playerWins()) {
                     System.out.println("You won!");
@@ -53,7 +59,7 @@ public class TextUI {
                     System.out.println("You lost!");
                 }                
                 break;
-            }
+            }*/
 
             printBoard();
 
