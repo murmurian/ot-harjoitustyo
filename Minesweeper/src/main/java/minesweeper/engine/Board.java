@@ -83,7 +83,6 @@ public class Board {
     public void flagCell(int x, int y) {
         if (!this.board[y][x].getIsOpen() && !this.board[y][x].getIsFlagged()) {
             this.board[y][x].setIsFlagged();
-            System.out.println(this.board[y][x].getIsFlagged());
         } else if (!this.board[y][x].getIsOpen()) {
             this.board[y][x].setIsNotFlagged();
         }

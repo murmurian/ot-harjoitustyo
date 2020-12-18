@@ -29,11 +29,11 @@ public class TextUI {
 
         // To play a constant board, set a seed value:
         game.useSeedValue(1337);
-        FileHighscoresDao scores = new FileHighscoresDao("scores.txt");
+        /*FileHighscoresDao scores = new FileHighscoresDao("scores.txt");
         scores.addScore(0, 222, "dude!!");
         scores.addScore(0, 888, "man!!");
         scores.addScore(0, 44, "sweet!!");
-        System.out.println(scores.getHighscores(0).toString());
+        System.out.println(scores.getHighscores(0).toString());*/
         
         printBoard();
         startGame();

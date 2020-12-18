@@ -19,4 +19,5 @@ päivä | aika | mitä tein
 8.12. | 5 | Liputus hiiren oikealla napilla GUI:ssa. Miinakentän luonti eriytetty Board-luokasta omaksi Generator-luokaksi. GameTest-luokka luotu ja pari testiä lisätty. JavaDocin aloitus.
 17.12. | 5 | Käyttöliittymän kehittelyä.
 18.12. | 4 | Alustavan highscoresin luontia.
-yht. | 41 |
+19.12 | 5 | Refaktorointia. High scoresin lisääminen. Grafiikan päivitystä.
+yht. | 46 |
