@@ -65,7 +65,7 @@ public class Generator {
         Collections.shuffle(list, new Random(this.seed));
         for (int i = 0; i < mineCount; i++) {
             y = list.get(i) % this.board.length;
-            x = list.get(i) / this.board[0].length;
+            x = list.get(i) % this.board[0].length;
             if (x == firstX && y == firstY) {
                 mineCount++;
                 continue;
