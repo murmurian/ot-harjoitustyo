@@ -14,12 +14,22 @@ Käyttöliittymä on pyritty toteuttamaan yksinkertaisena ja selkeänä. Se koos
 
 Käyttöliittymä on eriytetty sovelluslogiikasta. Käyttöliittymällä itsellään ei ole tietoja pelin tilanteesta vaan se kutsuu *Game*-luokan metodeja tarvitessaan. Pelilaudan nappulat piirretään uudestaan pelaajan avatessa ruudun. Käyttöliitymässä näkyvä aika päivittyy *AnimationTimer*-luokan metodeilla.
 
-## Sovelluslogiikka
-
-
-
 ## Toiminnallisuus
 
-Kuvattuna sovelluksen ehkä keskeisin toiminto solun avaaminen. Kaavio kuvaa tilannetta jossa avataan aiemmin avaamaton miinaton solu. Koska solu on kolmen miinan vieressä, ei viereisiä tyhjiä soluja aleta avaamaan rekursiivisesti.
-
 ![sekvenssikaavio](/dokumentaatio/openCell.png)
+
+Sekvenssikaaviossa kuvattuna sovelluksen ehkä keskeisin toiminto solun avaaminen. Kaavio kuvaa tilannetta jossa avataan aiemmin avaamaton miinaton solu. Koska solu on kolmen miinan vieressä, ei viereisiä tyhjiä soluja aleta avaamaan rekursiivisesti. Toinen keskeinen toiminnallisuus käyttäjälle on peliruudun merkitseminen lipulla. Toteutus on melko suoraviivainen.
+
+## Tietojen tallennus
+
+Sovellus tallentaa jokaisen vaikeustason 10 parasta aikaa tiedostoon. Tallennuksesta vastaa *HighscoresDao*-luokka joka on toteutettu Data Access Object -suunnittelumallin mukaisesti. Tulokset tallennetaan muodossa:
+
+`0;123;nimi`
+
+Ensimmäisenä on vaikeustaso (0-3), toisena aika sekunteina ja viimeisenä pelaajan antama nimi.
+
+Listojen käsittely ohjelmassa on toteutettu *TreeMap<Integer, String>*-tietorakenteena. *checkIfHighscore*-metodi tarkistaa onko pelaajan tulos listakelpoinen. Jos tulos lisätään listalle, järjestää binääripuu tulokset automaattisesti oikeaan järjestykseen ajan mukaan. Jos puun koko ylittää halutun 10, poistetaan huonoin tulos.
+
+
+
+
