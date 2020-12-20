@@ -21,4 +21,5 @@ päivä | aika | mitä tein
 18.12. | 4 | Alustavan highscoresin luontia.
 19.12 | 5 | Refaktorointia. High scoresin lisääminen. Grafiikan päivitystä.
 20.12. | 4 | Testien luontia.
-yht. | 46 |
+20.12. | 4 | Dokumentaation loppurutistus.
+yht. | 50 |
