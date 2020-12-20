@@ -4,7 +4,7 @@
 
 Ohjelman rakenne jakautuu kolmelle tasolle oheisen pakkausrakenteen mukaisesti:
 
-![pakkauskaavio](/dokumentaatio/pakkaus.JPG)
+![pakkauskaavio](/dokumentaatio/pakkaus.jpg)
 
 JavaFX:llä toteutettu käyttöliittymä on pakkauksessa *minesweeper.ui*. Sovelluslogiikka on pakkauksessa *minesweeper.engine*. Sovelluksen high score listojen pysyväistallennus ja käsittely on toteutettu pakkauksessa *minesweeper.dao*.
 
