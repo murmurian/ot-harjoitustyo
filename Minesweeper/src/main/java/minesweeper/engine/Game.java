@@ -1,7 +1,6 @@
 package minesweeper.engine;
 
 import java.io.File;
-import java.util.ArrayList;
 import java.util.List;
 import minesweeper.dao.FileHighscoresDao;
 
@@ -25,9 +24,9 @@ public class Game {
      */
     public Game(int difficulty) {
         this.difficulty = difficulty;
-        int[] width = new int[]{9, 16, 30};
-        int[] height = new int[]{9, 16, 16};
-        int[] mines = new int[]{10, 40, 99};
+        int[] width = new int[] { 9, 16, 30 };
+        int[] height = new int[] { 9, 16, 16 };
+        int[] mines = new int[] { 10, 40, 99 };
         this.board = new Board(width[difficulty], height[difficulty], mines[difficulty]);
         this.gameState = board.getBoard();
     }
@@ -35,9 +34,9 @@ public class Game {
     /**
      * Sets up a new game for custom difficulty.
      *
-     * @param width Custom width.
+     * @param width  Custom width.
      * @param height Custom height.
-     * @param mines Custom number of mines.
+     * @param mines  Custom number of mines.
      */
     public Game(int width, int height, int mines) {
         this.difficulty = 3;
@@ -50,12 +49,10 @@ public class Game {
     }
 
     /**
-     * Opens a cell, updates the game state and checks if end conditions are
-     * met.
+     * Opens a cell, updates the game state and checks if end conditions are met.
      *
      * @param x x-coordinate.
      * @param y y-coordinate.
-     * @return Returns true if game continues.
      */
     public void openCell(int x, int y) {
         checkIfFirstMove(x, y);
@@ -166,6 +163,7 @@ public class Game {
      * Checks if player has made a top 10 high score.
      *
      * @return boolean value.
+     * @throws Exception in case of a file error.
      */
     public boolean isHighScore() throws Exception {
         File fileName = new File("scores.txt");
@@ -175,13 +173,23 @@ public class Game {
 
     /**
      * Adds players score to high scores.
+     * 
+     * @param name players name.
+     * @throws Exception in case of a file error.
      */
     public void setHighscore(String name) throws Exception {
         File fileName = new File("scores.txt");
         FileHighscoresDao scores = new FileHighscoresDao(fileName);
         scores.addScore(this.difficulty, (int) ((this.endTime - this.startTime) / 1000), name);
     }
-    
+
+    /**
+     * Returns top 10 list of best times for given difficulty as a String.
+     * 
+     * @param difficulty 0 = easy, 1 = intermediate, 2 = hard, 3 = custom.
+     * @return list as String.
+     * @throws Exception in case of a file error.
+     */
     public String getHighscores(int difficulty) throws Exception {
         File fileName = new File("scores.txt");
         FileHighscoresDao scores = new FileHighscoresDao(fileName);
@@ -190,7 +198,7 @@ public class Game {
         for (int i = 0; i < list.size(); i++) {
             highscores += i + 1 + ". " + list.get(i) + "\n";
         }
-        
+
         return highscores;
     }
 

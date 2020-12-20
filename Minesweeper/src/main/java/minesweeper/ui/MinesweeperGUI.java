@@ -226,6 +226,7 @@ public class MinesweeperGUI extends Application {
 
     private void checkIfHighScore() throws Exception {
         if (game.isHighScore()) {
+            drawButtons();
             TextInputDialog dialog = new TextInputDialog("Anonymous");
             dialog.setTitle("High score!");
             dialog.setHeaderText("Congratulations, you won!");
@@ -239,7 +240,7 @@ public class MinesweeperGUI extends Application {
     private void showHighscores(int difficulty) throws Exception {
         String[] title = new String[] { "Easy", "Intermediate", "Hard", "Custom" };
         Alert alert = new Alert(AlertType.INFORMATION);
-        alert.setTitle("High scores");
+        alert.setTitle("Top 10 High scores");
         alert.setHeaderText(title[difficulty]);
         alert.setContentText(game.getHighscores(difficulty));
         alert.showAndWait();

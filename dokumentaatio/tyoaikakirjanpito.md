@@ -20,4 +20,5 @@ päivä | aika | mitä tein
 17.12. | 5 | Käyttöliittymän kehittelyä.
 18.12. | 4 | Alustavan highscoresin luontia.
 19.12 | 5 | Refaktorointia. High scoresin lisääminen. Grafiikan päivitystä.
+20.12. | 4 | Testien luontia.
 yht. | 46 |

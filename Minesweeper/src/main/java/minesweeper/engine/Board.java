@@ -32,8 +32,8 @@ public class Board {
     /**
      * Method places mines on the empty board when first cell is opened.
      * The first opened cell is never a mine.
-     * @param firstX x-coordinate of the first opened cell
-     * @param firstY y-coordinate of the first opened cell
+     * @param firstX x-coordinate of the first opened cell.
+     * @param firstY y-coordinate of the first opened cell.
      */
 
     public void generateMinefield(int firstX, int firstY) {
@@ -44,8 +44,8 @@ public class Board {
     /**
      * Opens cell on the board if it is not open or flagged.
      * Recurcively opens adjacent cells, if the cell has zero mines near.
-     * @param x x-coordinate.
-     * @param y y-coordinate.
+     * @param x x-coordinate to be opened.
+     * @param y y-coordinate to be opened.
      */
 
     public void openCell(int x, int y) {
@@ -120,8 +120,9 @@ public class Board {
 
     public void openMines() {
         for (Cell[] row : this.board) {
-            for (Cell cell : row) {
+            for (Cell cell : row) {                
                 if (cell.getIsMine()) {
+                    cell.setIsNotFlagged();
                     cell.setIsOpen();
                 }
             }
@@ -141,18 +142,6 @@ public class Board {
                 }
             }
         }
-    }
-
-    public int getWidth() {
-        return this.width;
-    }
-
-    public int getHeight() {
-        return this.height;
-    }
-
-    public int getMines() {
-        return this.mines;
     }
 
     /**

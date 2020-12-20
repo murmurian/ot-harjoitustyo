@@ -7,10 +7,22 @@ import java.util.List;
 import java.util.Scanner;
 import java.util.TreeMap;
 
+/**
+ * Class manages high scores for all difficulties. Top 10 high scores are saved
+ * to file. Class uses TreeMap-structure to sort scores.
+ */
+
 public class FileHighscoresDao implements HighscoresDao {
 
     private TreeMap<Integer, String>[] highscores;
     private File fileName;
+
+    /**
+     * Reads high scores from given file and creates a new file if necessary.
+     * 
+     * @param fileName High scores file.
+     * @throws Exception filesystem error.
+     */
 
     public FileHighscoresDao(File fileName) throws Exception {
         highscores = new TreeMap[4];
@@ -33,6 +45,13 @@ public class FileHighscoresDao implements HighscoresDao {
         }
     }
 
+    /**
+     * Returns list of 10 best times for given difficulty.
+     * 
+     * @param difficulty 0 = easy, 1 = intermediate, 2 = hard, 3 = custom.
+     * @return ArrayList of names and times.
+     */
+
     @Override
     public List<String> getHighscores(int difficulty) {
         ArrayList<String> scoreList = new ArrayList<>();
@@ -42,6 +61,14 @@ public class FileHighscoresDao implements HighscoresDao {
         return scoreList;
     }
 
+    /**
+     * Checks if players time is high score for given difficulty.
+     * 
+     * @param difficulty 0 = easy, 1 = intermediate, 2 = hard, 3 = custom.
+     * @param time       players time.
+     * @return returns true if time is top 10.
+     */
+
     @Override
     public boolean checkIfHighscore(int difficulty, int time) {
         if (highscores[difficulty].size() < 10) {
@@ -49,6 +76,15 @@ public class FileHighscoresDao implements HighscoresDao {
         }
         return highscores[difficulty].lastEntry().getKey() > time;
     }
+
+    /**
+     * Adds high score to top 10 list.
+     * 
+     * @param difficulty int 0 = easy, 1 = intermediate, 2 = hard, 3 = custom.
+     * @param time       int players time.
+     * @param name       String players name.
+     * @return returns true if time is top 10.
+     */
 
     @Override
     public void addScore(int difficulty, int time, String name) {
