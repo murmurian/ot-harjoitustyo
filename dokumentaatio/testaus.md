@@ -12,7 +12,7 @@ Pelin high score -toiminnallisuus lisättiin vasta projektin loppuvaiheilla. *Fi
 
 Sovelluksen testauskattavuus on hyvä. Rivikattavuus on 88% ja haarautumakattavuus 96%. Tämä on tosin osin hieman petollista, koska sovelluksessa käyttäjä lähinnä availee tai liputtaa peliruutuja ja jo yksittäisen ruudun avaaminen käy useissa tilanteissa ison osan koodia läpi. Automatisoituja testejä varten on myös hieman haastavaa keksiä erilaisia pelitilanteita jotka horjuttaisivat pelin logiikkaa ja kyseiset ongelmat löytyvätkin helpommin manuaalisessa testaamisessa.
 
-![testikattavuus](/dokumentaatio/testausraportti.jpg)
+![testikattavuus](/dokumentaatio/testiraportti.jpg)
 
 Testeistä jäi puuttumaan *Game*-luokan tiedon tallenukseen liittyvät metodit. Syynä tähän on metodien jokseenkin kömpelö toteutus johtuen top 10 listojen myöhäisestä lisäämisestä.
 
