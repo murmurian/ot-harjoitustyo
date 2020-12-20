@@ -27,11 +27,11 @@ Käytössäsi on kaksi toimintoa. Hiiren vasemmalla napilla peli avaa ruudun:
 
 ![Vasen](/dokumentaatio/vasen.jpg)
 
-Ruudussa oleva numero ilmaisee monessako viereisessä ruudussa on miina. Jos aavistat, että ruudussa on miina, voit merkitä sen lipulla oikealla hiiren napilla:
+Ruudussa oleva numero ilmaisee monessako viereisessä ruudussa on miina. Jos osut ruutuun jonka vieressä ei ole miinoja, avaa peli automaattisesti viereiset tyhjät ruudut. Jos aavistat, että ruudussa on miina, voit merkitä sen lipulla oikealla hiiren napilla:
 
 ![Oikea](/dokumentaatio/oikea.jpg)
 
-Liputettua ruutua ei voi avata, mutta voit myös poistaa lipun oikealla napilla. Kun kaikki miinattomat ruudut on avattu, peli liputtaa loput ruudut automaattisesti:
+Liputettua ruutua ei voi avata, mutta voit poistaa lipun oikealla napilla. Kun kaikki miinattomat ruudut on avattu, peli liputtaa loput ruudut automaattisesti:
 
 ![Voitto](/dokumentaatio/voitto.jpg)
 
