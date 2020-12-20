@@ -25,11 +25,11 @@ Sovellus on pulmapeliklassikko Miinaharava, jossa pelaajan teht채v채n채 on etsi�
 
 ## Komentorivitoiminnot
 
-### Testaus
-
 Ohjelma voidaan k채ynnist채채 komentorivilt채 komennolla:
 
 `mvn compile exec:java -Dexec.mainClass=minesweeper.Minesweeper`
+
+### Testaus
 
 Testit suoritetaan komennolla:
 
