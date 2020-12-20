@@ -30,6 +30,8 @@ Ensimmäisenä on vaikeustaso (0-3), toisena aika sekunteina ja viimeisenä pela
 
 Listojen käsittely ohjelmassa on toteutettu *TreeMap<Integer, String>*-tietorakenteena. *checkIfHighscore*-metodi tarkistaa onko pelaajan tulos listakelpoinen. Jos tulos lisätään listalle, järjestää binääripuu tulokset automaattisesti oikeaan järjestykseen ajan mukaan. Jos puun koko ylittää halutun 10, poistetaan huonoin tulos.
 
+## Sovelluksessa olevia puutteita
 
-
-
+- Graafisen käyttöliittymän toteuttava koodi on todella kömpelöä. Sovellusta tehdessä kokemusta JavaFX:n käytöstä ei ollut juuri lainkaan, onneksi tehdessä oppi nopeasti. Graafinen käyttöliittymä toteutettiin vasta projektin loppuvaiheissa joten ajanpuutteen vuoksi refaktorointiakaan ei ehtinyt tekemään. FMXL:n opettelu voisi olla hyödyksi käyttöliittymää parannellessa. Omissa testailuissa olen kuitenkin ihan tyytyväinen ulkoasuun, jota maustettiin lopulta hieman ajan hengen mukaiseksi...
+- Tiedostojen kirjoittaminen oli myös uutta, joten esim. *Game*-luokan osalta mentiin nyt sellaisella ratkaisulla joka jokseenkin toimi.
+- 20.12. 23:51 täytyy todeta, että dokumentaation hiomiselta loppuu aika. Erityisesti arkkitehtuurikuvausta voisi vielä paljon parannella.
