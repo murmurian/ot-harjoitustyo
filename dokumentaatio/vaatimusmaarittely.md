@@ -27,9 +27,9 @@ Pelissä on yksi käyttäjä eli pelaaja.
   - Tappioon, jos pelaaja osuu miinaan
 - Peli näyttää käyttäjälle kuluneen ajan sekunteina ensimmäisen ruudun avaamisesta tai lipun asettamisesta
 - Jokaiselle vaikeustasolle tallennetaan 10 parasta tulosta tiedostoon
-- Parhaat tulokset saa esille "High scores" -painikkeella.
+- Parhaat tulokset saa esille "High scores" -painikkeella
 
 ## Jatkokehitysideoita
 
 - Graafisen käyttöliittymän rakentavan luokan voisi kirjoittaa uusiksi ja samalla ulkoasua kehittää.
-- Parhaat tulokset voisi tallentaa tiedoston sijaan tietokantaan. Nykyinen tallennettava tiedon määrä on tosin vähäistä ja binäärihakupuina toteutetut listat ajavat asian hyvin, joten tietokantaan voisi tallentaa muutakin tietoja. Pelissä on esimerkiksi mahdollisuus arpoa miinat siemenarvon perusteella ja tämän voisi tallentaa jolloin pelaajat voisivat pelata kenttiä uudestaan ja kilpailla kuka on nopein samassa kentässä..
+- Parhaat tulokset voisi tallentaa tiedoston sijaan tietokantaan. Nykyinen tallennettava tiedon määrä on tosin vähäistä ja binäärihakupuina toteutetut listat ajavat asian hyvin, joten tietokantaan voisi tallentaa muutakin tietoja. Pelissä on esimerkiksi mahdollisuus arpoa miinat siemenarvon perusteella ja tämän voisi tallentaa jolloin pelaajat voisivat pelata kenttiä uudestaan ja kilpailla kuka on nopein samassa kentässä.
